@@ -44,3 +44,27 @@ int coinChange(vector < int > & coins, int amount) {
 
     return minCoins(coins, n, amount, dp);
 }
+
+/*
+  2. Bottom Up (Tabulation)
+  Algo: a.Fill Dp array with maximum value which is amount+1 in this case
+        b.start filling dp array considering every coins
+        c.return dp[amount]
+*/
+int coinChange(vector < int > & coins, int amount) {
+
+    vector<int>dp(amount + 1, amount + 1);
+
+    dp[0] = 0;
+
+    for (int i = 1; i <= amount; i++) {
+        for (int j = 0; j < coins.size(); j++) {
+            if (coins[j] <= i) {
+                dp[i] = min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+    }
+    if (dp[amount] > amount)
+        return -1;
+    return dp[amount];
+}
