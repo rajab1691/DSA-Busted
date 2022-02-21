@@ -1,5 +1,6 @@
 /*
   1. Just maintain a global variable time
+  T.C-O(V+E)
 */
 
 void dfsUtil(int src, vector<int>&arrival,
