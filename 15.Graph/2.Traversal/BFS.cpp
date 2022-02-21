@@ -5,13 +5,12 @@
   
   T.C-O(V+E)
 */
-void bfs(int src){
+void bfs(int src,int n){
 
         queue<int>q;
         q.push(src);
-        //number of nodes
-        int n=l.size();
-
+        //number of nodes=n
+       
         vector<bool>visit(n,false);
         visit[src]=true;
 
