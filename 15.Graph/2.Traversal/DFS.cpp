@@ -12,10 +12,10 @@ void dfsUtil(int src, vector<bool>&visit) {
     }
   }
 }
-void dfs(int src) {
-  //count of nodes
-  int n = l.size();
-  vector<bool>visit(n, false);
+void dfs(int src,int v) {
+  //count of nodes=v
+ 
+  vector<bool>visit(v, false);
 
   dfsUtil(src, visit);
 }
