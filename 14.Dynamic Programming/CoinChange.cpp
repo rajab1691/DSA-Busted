@@ -11,39 +11,26 @@
   T.C-O(amount*sizeOfArray)
   
 */
-int minCoins(vector<int>&coins, int n, int amount, vector<int>&dp) {
+ int dp[10000 + 1][12 + 1]; 
 
-    //Base Case
-    if (amount < 0)
-        return -1;
-    if (amount == 0)
-        return 0;
+ int memoization(vector < int > & wt, int w, int n) {
+   if (n == 0 || w == 0)
+     return (w == 0) ? 0 : INT_MAX - 1;
 
-    if (dp[amount] != 0)
-        return dp[amount];
+   if (dp[w][n] != -1) 
+     return dp[w][n]; 
 
-    int ans = INT_MAX;
-    for (int i = 0; i < n; i++) {
-        int subProb = minCoins(coins, n, amount - coins[i], dp);
+   if (wt[n - 1] > w)
+     return dp[w][n] = memoization(wt, w, n - 1);
+   else
+     return dp[w][n] = min(memoization(wt, w , n - 1), 1 + memoization(wt, w - wt[n - 1], n));
+ }
 
-        if (subProb >= 0 and subProb < ans) {
-            ans = subProb + 1;
-        }
-    }
-    //given in problem,cannot make combination then return -1
-    if (ans == INT_MAX)
-        ans = -1;
-
-    return dp[amount] = ans;
-}
-int coinChange(vector < int > & coins, int amount) {
-
-    int n = coins.size();
-
-    vector<int>dp(amount + 1, 0);
-
-    return minCoins(coins, n, amount, dp);
-}
+ int coinChange(vector < int > & coins, int amount) {
+   memset(dp, -1, sizeof(dp));
+   int minCoins = memoization(coins, amount, coins.size());
+   return minCoins == INT_MAX - 1 ? -1 : minCoins;
+ }
 
 /*
   2. Bottom Up (Tabulation)
