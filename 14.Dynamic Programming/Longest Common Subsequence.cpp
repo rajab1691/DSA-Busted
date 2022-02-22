@@ -22,6 +22,7 @@ int lcs(string s1,string s2,int i,int j){
 
 /*
   Bottom Up
+  T.C-O(n*m)
 */
  int longestCommonSubsequence(string s1, string s2) {
    int n = s1.length();
