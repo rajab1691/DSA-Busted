@@ -4,7 +4,7 @@
   2. if don't matches then cal max(fxn(i+1,j),fxn(i,j+1)
   T.C-O(2^n) worst case when all character mismatch
 */
-
+//initially i=0,j=0
 int lcs(string s1,string s2,int i,int j){
 
     if(i==s1.length() or j==s2.length()){
