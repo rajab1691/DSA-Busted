@@ -24,7 +24,9 @@ int fibUsingMemo(int n, vector < int > & dp) {
   T.C & S.C-O(n)
 */
 int fibUsingTabu(int n) {
-
+  
+  if (n <= 1)
+    return n;
   vector<int>dp(n+1,-1);
 
   dp[0] = 0;
@@ -42,6 +44,9 @@ int fibUsingTabu(int n) {
   S.C-O(1)
 */
 int fibUsingSpaceOpt(int n) {
+  
+  if (n <= 1)
+    return n;
   
   int prev2 = 0;
   int prev1 = 1;
