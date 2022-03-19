@@ -9,7 +9,7 @@
     
     T.C & S.C-O(n)
 */
-int cost(int *a,int n){
+int costWithTab(int *a,int n){
 
     vector<int>dp(n+1,INT_MAX);
 
@@ -36,4 +36,30 @@ void solve(){
     }
     
     cout<<cost(a,n)<<endl;
+}
+
+/*
+  Space optimized
+  S.C-O(1)
+*/
+int cost(int *arr,int n){
+
+    int a=0;
+    int b=abs(arr[1]-arr[2]);
+
+    if(n<=2){
+        return b;
+    }
+    
+    int c;
+    for(int i=3;i<=n;i++){
+
+        int val1=b+abs(arr[i]-arr[i-1]);
+        int val2=a+abs(arr[i]-arr[i-2]);
+        c=min(val2,val1);
+        a=b;
+        b=c;
+    }
+
+    return c;
 }
