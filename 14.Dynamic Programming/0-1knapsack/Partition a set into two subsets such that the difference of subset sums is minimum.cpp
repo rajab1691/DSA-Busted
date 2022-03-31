@@ -56,7 +56,7 @@ int minSubsetSumDifference(vector<int>& arr, int n)
     
     for(int i=0;i<(sum/2)+1;i++){
         if(dp[n][i]==1){
-			ans=min(ans,abs(sum-2*i));
+	    ans=min(ans,abs(sum-2*i));
         }
     }
     return ans;
