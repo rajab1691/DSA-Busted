@@ -19,6 +19,7 @@
   Recursion+Memoization
   T.C & S.C- O(n*k)
 */
+//n =n in this
 bool sub(vector<int>&arr,int k,int n,vector<vector<int>>&dp){
     
     if(n==0 and k==0)return true;
