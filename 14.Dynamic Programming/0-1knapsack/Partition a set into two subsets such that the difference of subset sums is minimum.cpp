@@ -37,7 +37,7 @@ int minSubsetSumDifference(vector<int>& arr, int n)
     int sum=0;
     for(int i=0;i<n;i++)sum+=arr[i];
     
-	vector<vector<int>>dp(n+1,vector<int>(sum+1,0));
+    vector<vector<int>>dp(n+1,vector<int>(sum+1,0));
     	
     for(int i=0;i<sum+1;i++)dp[0][i]=0;
     for(int i=0;i<n+1;i++)dp[i][0]=1;
