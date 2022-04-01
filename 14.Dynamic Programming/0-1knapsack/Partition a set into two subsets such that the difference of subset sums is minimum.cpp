@@ -52,8 +52,8 @@ int minSubsetSumDifference(vector<int>& arr, int n)
         }
     }
     
-    int ans=1e9;
-    
+    int ans=sum;
+    // check in last row of matrix whose cell is true bcuz last row means taking all elem into pic and true means subset can be made
     for(int i=0;i<(sum/2)+1;i++){
         if(dp[n][i]==1){
 	    ans=min(ans,abs(sum-2*i));
