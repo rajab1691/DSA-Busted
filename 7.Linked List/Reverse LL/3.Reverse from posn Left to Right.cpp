@@ -2,7 +2,7 @@
   Recursive
 */
 ListNode* succ = NULL;
-//Reverse from given pos to pos+n
+
 ListNode* revN(ListNode* head, int n) {
 
 	if (n == 1) {
@@ -21,6 +21,17 @@ ListNode* reverseBetween(ListNode* head, int left, int right) {
 		return revN(head, right);
 	}
 	ListNode* curr = head;
+	ListNode* dummy = new ListNode(0);
+	ListNode* ptr = dummy;
+	//copy till left-1 elem
+	for (int i = 1; i < left; i++) {
+		ListNode* node = new ListNode(curr->val);
+		ptr->next = node;
+		ptr = ptr->next;
+		curr = curr->next;
+	}
+	//reverse from left to next (n) elem where n=r-l+1
+	ptr->next = revN(curr, right - left + 1);
 
-	ListNode* newHead = revN(head, right - left + 1);
+	return dummy->next;
 }
