@@ -1,5 +1,5 @@
 /*
-  Right leaf means two choice: do postorder or reverse inorder
+  Right leaf means two choice: do right opern first
   
 */
 bool isLeaf(Node* root) {
