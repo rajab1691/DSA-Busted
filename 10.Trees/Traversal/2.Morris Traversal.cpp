@@ -1,4 +1,5 @@
  /*
+ 	The idea is based on threaded binary tree.
         Morris Traversal:we can traverse the tree without using stack and recursion
         Steps-1: if (curr->left) is not NULL, then go to the rightmost child of (curr->left)
                   1.if not connected with its root then connect and go to left again
