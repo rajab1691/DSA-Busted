@@ -1,6 +1,8 @@
 /*
-  Right leaf means two choice: do right opern first
-  
+     Thinking approach: (Post order)
+     1. When we are at root then we know that we have to go right first.
+     2. So check 1st that is root has right children? if it is then check if it leaf node?
+     3. If it is leaf node then add to sum then do normal post order 
 */
 bool isLeaf(Node* root) {
 	if (root and root->left == NULL and root->right == NULL)
