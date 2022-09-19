@@ -1,4 +1,4 @@
-# Trie
+# Trie / Prefix Tree
 + Trie is useful in efficient information retrieval data structures.
 + Trie is a tree that stores strings.
 
