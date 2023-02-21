@@ -34,6 +34,7 @@ ListNode* reverseList(ListNode* head) {
 		return head;
 
 	ListNode* newHead = reverseList(head->next);
+	// assume only two elem in ll
 	head->next->next = head;
 	head->next = NULL;
 	return newHead;
